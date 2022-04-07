@@ -1,0 +1,155 @@
+@font-face {
+  font-family: "ColfaxAI";
+  src: url(https://cdn.openai.com/API/fonts/ColfaxAIRegular.woff2)
+      format("woff2"),
+    url(https://cdn.openai.com/API/fonts/ColfaxAIRegular.woff) format("woff");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "ColfaxAI";
+  src: url(https://cdn.openai.com/API/fonts/ColfaxAIBold.woff2) format("woff2"),
+    url(https://cdn.openai.com/API/fonts/ColfaxAIBold.woff) format("woff");
+  font-weight: bold;
+  font-style: normal;
+}
+body,
+input {
+  font-size: 16px;
+  line-height: 24px;
+  color: #353740;
+  font-family: "ColfaxAI", Helvetica, sans-serif;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.main-content {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 10px;
+}
+
+
+
+.icon {
+
+  width: 34px;
+}
+h3 {
+  font-size: 32px;
+  line-height: 40px;
+  font-weight: bold;
+  color: #202123;
+  margin: 16px 0 40px;
+}
+
+h5 {
+  font-weight: normal;
+  color: rgba(0, 0, 0, 0.6);
+  font-size: 18px;
+  padding: 0 100px;
+}
+
+form {
+  margin-top: 30px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+
+}
+
+.input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  gap: 24px;
+}
+
+.content {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  /* -webkit-box-shadow: 0 0 5px 8px rgba(0, 0, 0, 0.1);
+  -moz-box-shadow: 0 0 5px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 0 5px 15px rgba(0, 0, 0, 0.1); */
+  padding: 5px 50px;
+  border-radius: 10px;
+}
+
+input[type="text"] {
+  padding: 12px 16px;
+  border: 1px solid #10a37f;
+  border-radius: 4px;
+  width: 100%;
+}
+
+::placeholder {
+  color: #8e8ea0;
+  opacity: 1;
+}
+
+input[type=submit] {
+  margin-bottom: 15px;
+  margin-top: 30px;
+}
+
+.primary-btn {
+  padding: 12px 0;
+  color: #fff;
+  background-color: #10a37f;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+  width: 250px;
+}
+
+
+.result-container {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 20px;
+  padding: 40px;
+
+  width: 80%;
+  
+  font-size: 24px;
+  line-height: 48px;
+  margin-bottom: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  margin-top: 50px;
+
+}
+
+.ai-label {
+  margin-bottom: 15px;
+}
+
+.clear-btn {
+  float: right;
+  margin-right: 10%;
+}
+
+.how-it-works {
+  color: rgba(0, 0, 0, 0.3);
+  font-weight: bold;
+  text-decoration: underline;
+  font-size: 16px;
+  float: left;
+  text-align: left;
+  margin-left: 10%;
+  margin-top: 20px;
+}
