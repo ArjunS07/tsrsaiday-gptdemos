@@ -13,6 +13,7 @@
   font-weight: bold;
   font-style: normal;
 }
+
 body,
 input {
   font-size: 16px;
@@ -28,13 +29,22 @@ body {
 }
 
 .main-content {
-  height: 100vh;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
   padding: 10px;
 }
+
+@media only screen and (min-height: 768px) {
+
+  .main-content {
+    height: 100vh
+  }
+
+}
+
+
 
 
 
