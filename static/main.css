@@ -36,7 +36,7 @@ body {
   padding: 10px;
 }
 
-@media only screen and (min-height: 768px) {
+@media only screen and (min-height: 768px) and (min-width: 768px){
 
   .main-content {
     height: 100vh
@@ -58,6 +58,8 @@ h3 {
   font-weight: bold;
   color: #202123;
   margin: 16px 0 40px;
+  margin-top: 30px;
+
 }
 
 h5 {
@@ -67,8 +69,12 @@ h5 {
   padding: 0 100px;
 }
 
+.red-warning {
+  margin-top: 20px;
+  color: #C0392B;
+  
+}
 form {
-  margin-top: 30px;
 
   display: flex;
   flex-direction: column;

@@ -2,7 +2,7 @@ def convert_lower(inp_list):
     return list(map(lambda word: word.lower(), inp_list))
 
 import json
-unsafe_words = open('unsafe_words.json')
+unsafe_words = open('unsafe_words.json')    
 data = json.load(unsafe_words)
 
 slurs_nsfw = convert_lower(data['slurs_and_nsfw'])

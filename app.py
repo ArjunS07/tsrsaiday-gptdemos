@@ -23,15 +23,17 @@ def index():
 
         for word in words:
             if not is_safe(word):
-                return render_template("index.html")
+                return render_template("index.html", redirectedByUnsafeWord = True)
 
         story_is_safe = False
-        story = ""
+        story = "🤔 Something went wrong. Click the clear button and try again. "
 
-        # test
-        test_var = 0
 
-        while not story_is_safe:
+
+        max_tries = 5
+        num_tries = 0
+
+        while not story_is_safe and num_tries < max_tries:
             print('generating story...')
 
             response = openai.Completion.create(
@@ -56,6 +58,8 @@ def index():
             for story_word in story_words:
                 if not is_safe(story_word):
                     story_is_safe = False
+            
+            num_tries += 1
             
 
         

@@ -19,8 +19,8 @@
 
 
       <div class="row">
-        <div class="col-md-2"></div>
-        <div class="col-md-8 col-xs-12 content">
+        <div class="col-lg-2"></div>
+        <div class="col-lg-8 col-xs-12 content">
           <div class="top-details">
             <img src="{{ url_for('static', filename='story.png') }}" class="icon" />
       
@@ -36,6 +36,13 @@
             <br/><br/>
             Enter 4 words in the boxes below and see what unique, never-seen-before short story featuring all four of those words the almighty algorithm will offer:
           </h5>
+
+          {% if redirectedByUnsafeWord %}
+            <p class = "red-warning">
+              ❗️ It seems like you entered a word that is not allowed by the website. Please refrain from using such language. 
+            </p>
+          {% endif %}
+
 
           <form action="/" method="post">
 
@@ -69,7 +76,7 @@
           </form>
 
         </div>
-        <div class="col-md-2"></div>
+        <div class="col-lg-2"></div>
       </div>
   
   
