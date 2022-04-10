@@ -58,7 +58,7 @@ h3 {
   font-weight: bold;
   color: #202123;
   margin: 16px 0 40px;
-  margin-top: 30px;
+  margin-bottom: 30px;
 
 }
 
@@ -71,6 +71,7 @@ h5 {
 
 .red-warning {
   margin-top: 20px;
+  margin-bottom: 30px;
   color: #C0392B;
   
 }
