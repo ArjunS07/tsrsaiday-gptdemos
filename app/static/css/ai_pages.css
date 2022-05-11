@@ -7,9 +7,9 @@
 }
 
 @media only screen and (min-height: 768px) and (min-width: 768px) {
-  .main-content {
-    height: 100vh;
-  }
+  /* .main-content {
+    min-height: 100vh;
+  } */
 }
 
 .icon {
