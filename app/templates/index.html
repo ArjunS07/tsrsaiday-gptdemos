@@ -147,7 +147,10 @@
 
 <script>
 
-  location.hash = "#" + "story" 
+  var story =  document.getElementById('story');
+  if (typeof(story) != 'undefined' && story != null){
+    location.hash = "#" + "story" 
+  }
   
 
   var modal = document.getElementById("modal");
