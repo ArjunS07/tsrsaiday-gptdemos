@@ -91,7 +91,7 @@
 
   {% if result %}
 
-  <div class="show-if-results">
+  <div class="show-if-results" id = "story">
 
     <div class="container result-container" id = "result">
       <h3 class = "ai-label">Here's what the AI model came up with: </h3>
@@ -146,7 +146,9 @@
 </body>
 
 <script>
-  window.scrollTo(0, document.body.scrollHeight);
+
+  location.hash = "#" + "story" 
+  
 
   var modal = document.getElementById("modal");
 

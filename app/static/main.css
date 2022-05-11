@@ -44,10 +44,6 @@ body {
 
 }
 
-
-
-
-
 .icon {
 
   width: 34px;
@@ -66,7 +62,12 @@ h5 {
   font-weight: normal;
   color: rgba(0, 0, 0, 0.6);
   font-size: 18px;
-  padding: 0 100px;
+}
+
+@media only screen and (min-width: 768px) {
+  h5 {
+    padding: 0 100px;
+  }
 }
 
 .red-warning {
