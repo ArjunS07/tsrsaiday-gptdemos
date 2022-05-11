@@ -1,9 +1,14 @@
 def convert_lower(inp_list):
     return list(map(lambda word: word.lower(), inp_list))
 
+from pathlib import Path
 import json
-unsafe_words = open('unsafe_words.json')    
+
+json_location = Path(__file__).absolute().parent
+unsafe_words_json = json_location / 'unsafe_words.json'
+unsafe_words = open(unsafe_words_json)
 data = json.load(unsafe_words)
+
 
 slurs_nsfw = convert_lower(data['slurs_and_nsfw'])
 drugs = convert_lower(data['drugs'])
