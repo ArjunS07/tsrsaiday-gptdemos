@@ -1,7 +1,8 @@
 import os
 from string import punctuation
 
-from app.unsafe_words import is_safe
+from utils import unsafe_words
+
 
 import openai
 from flask import Flask, redirect, render_template, request, url_for
@@ -22,7 +23,7 @@ def index():
         ]
 
         for word in words:
-            if not is_safe(word):
+            if not unsafe_words.is_safe(word):
                 return render_template("index.html", redirectedByUnsafeWord = True)
 
         story_is_safe = False
@@ -56,7 +57,7 @@ def index():
             story_is_safe = True
 
             for story_word in story_words:
-                if not is_safe(story_word):
+                if not unsafe_words.is_safe(story_word):
                     story_is_safe = False
             
             num_tries += 1
