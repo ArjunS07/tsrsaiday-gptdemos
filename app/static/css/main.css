@@ -57,3 +57,10 @@ main {
   font-size: 0.9em;
   font-weight: bold;
 }
+
+.backlink, .backlink a {
+  color: rgba(255, 255, 255, 0.3);
+  text-decoration: none;
+  text-align: left;
+  padding-top: 2px;
+}
