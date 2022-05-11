@@ -1,8 +1,8 @@
 # openai.api_key = os.getenv("OPENAI_API_KEY")
 from numpy import add
-import openai
-openai.api_key = "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"
-
+import os, openai
+# openai.api_key = "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"
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 def clean_response(ai_generated_response):
     # Sometimes, GPT-3 gives a story with random punctuation at the end
