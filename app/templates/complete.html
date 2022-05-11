@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<head>
+  <title>AI Story Generator</title>
+  <link
+    rel="shortcut icon"
+    href="{{ url_for('static', filename='dog.png') }}"
+  />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/ai_pages.css') }}" />
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/modal.css') }}" />
+
+</head>
+
+<body>
+
+  <div class="container main-content">  
+
+    <div class="container main-content-container">
+
+
+      <div class="row">
+        <div class="col-lg-1"></div>
+        <div class="col-lg-10 col-xs-12 main-box">
+          <div class="top-details">
+      
+            <h3>
+              
+              Make AI Generate Short Stories
+            </h3>
+      
+          </div>
+          <h5 class=""> Have you ever come across a striking word that was begging to be in an epic adventure or an exotic tale, but haven't been able to do it yourself? <br/>
+            <br/> 
+            <b> Let state-of-the-art AI do it for you instead!  </b> 
+            <br/><br/>
+            Enter 4 words in the boxes below and see what unique, never-seen-before short story featuring all four of those words the almighty algorithm will offer:
+          </h5>
+
+          {% if redirectedByUnsafeWord %}
+            <p class = "red-warning">
+              ❗️ It seems like you entered a word that is not allowed by the website. Please refrain from using such language. 
+            </p>
+          {% endif %}
+
+
+          <form action="/complete" method="post">
+
+            <div class="input-group">
+
+                {% if result %}
+
+                <input type = "text" name="sentence-1" placeholder="Your second sentence" required>
+                <input type = "text" name="sentence-2" placeholder="Your second sentence" required>
+
+                {% else %}
+
+                <input type = "text" name="sentence-1" placeholder="Your second sentence" required>
+                <input type = "text" name="sentence-2" placeholder="Your second sentence" required>
+
+                {% endif %}
+
+                
+            </div>
+
+            <input type="submit" value="Complete my paragraph" class = "primary-btn">
+          </form>
+
+        </div>
+        <div class="col-lg-1"></div>
+      </div>
+  
+  
+
+  
+
+  
+    </div>
+  </div>
+
+
+
+  {% if result %}
+
+  <div class="show-if-results" id = "result">
+
+    <div class="container result-container">
+      <h3 class = "ai-label">Here's what the AI model came up with: </h3>
+      <div class="result">
+          <span>{{ sentence1 }}</span>
+          {{ result }}
+          <span> {{ sentence2 }} </span>
+        </div>
+  
+    </div>
+
+    <a href = "/">
+      <btn class="primary-btn clear-btn" href = "/">
+
+        Clear
+          
+      </btn>
+    </a>
+
+  </div>
+
+  <div class="container">
+    <p class = "how-it-works" id = "about-modal-btn"> 
+      More about how the site works
+    </p>
+  </div>
+
+  {% endif %}
+
+  <div class="modal" id = "modal">
+    <div class="modal-content">
+      <span class="close">&times;</span>
+      <p> 
+        This site is powered by a language model called <b> GPT-3 (Generative Pre-trained Transformer 3). </b>
+        A language model is a machine learning model that is used to predict the next word in a sequence of words. Language models are trained on large amounts of text data, and the predictions they make can be used to generate new text or to understand the context of a piece of text.
+        GPT-3 is a language model that was trained on a dataset of over one billion words. The dataset includes a wide variety of texts, including books, articles, and websites. 
+        
+        <br> <br> 
+        GPT-3 is better than its predecessor, GPT-2, and other language models, in several ways: it has a larger training set, it uses more sophisticated methods to make predictions, and it can handle longer sequences of words.
+      The potential weak points of GPT-3 include its reliance on statistical methods (which can be biased), its lack of understanding of grammar and syntax (which can lead to errors in prediction), and its limited vocabulary (which may limit its ability to generate new text).
+        
+        <br> <br>
+
+        <em> 
+          The description of GPT-3 that you just read was in itself written by GPT-3. 
+          <br> 
+          This website was coded using the Flask framework for Python by Arjun Sharma. 
+        </em> 
+        
+      </p>
+    </div>
+  </div>
+
+
+
+</body>
+
+<script>
+
+  var story =  document.getElementById('result');
+  if (typeof(story) != 'undefined' && story != null){
+    location.hash = "#" + "result" 
+  }
+
+  var modal = document.getElementById("modal");
+
+// Get the button that opens the modal
+  var btn = document.getElementById("about-modal-btn");
+
+  // Get the <span> element that closes the modal
+  var span = document.getElementsByClassName("close")[0];
+
+  // When the user clicks on the button, open the modal
+  btn.onclick = function() {
+    modal.style.display = "block";
+  }
+
+  // When the user clicks on <span> (x), close the modal
+  span.onclick = function() {
+    modal.style.display = "none";
+  }
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+  
+  
+
+</script>
