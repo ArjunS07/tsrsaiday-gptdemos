@@ -17,3 +17,6 @@ build/
 
 # TODO: UNCOMMENT THIS ONCE PUBLIC
 # .env
+
+story_logs.txt
+completion_logs.txt
