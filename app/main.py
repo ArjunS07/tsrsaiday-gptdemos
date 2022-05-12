@@ -6,6 +6,7 @@ from datetime import datetime
 
 from app.utils.unsafe_words import is_safe
 from app.utils.gpt_utils import generate_story, complete_para
+from app.utils.logging import log_to_firebase
 
 
 from flask import Flask, redirect, render_template, request, url_for
@@ -51,16 +52,17 @@ def story():
                     story_is_safe = False
             
             num_tries += 1
-        
-        story_log_path = "app/story_logs.txt"
-        os.system("ls -a")
-        if os.path.exists(story_log_path):
-            with open(story_log_path, "a") as f:
-                f.write("Story written at {}\nWords: {}\nGenerated story: {}\n\n".format(datetime.now().strftime("%c"), words, story))
-                f.close() 
-        else:
-            print("story log does not exist")
 
+            log_data = {
+                "word1": words[0],
+                "word2": words[1],
+                "word3": words[2],
+                "word4": words[3],
+                "story": story,
+                "timestamp": datetime.now().strftime("%c")
+            }
+
+            log_to_firebase(log_data, "story")
             
         return render_template("story.html", anchor = "result", result = story, words = words)
         
@@ -99,14 +101,15 @@ def complete():
             num_tries += 1
 
         # logging
-        completion_log_path = "app/completion_logs.txt"
-        os.system("ls -a")
-        if os.path.exists(completion_log_path):
-            with open(completion_log_path, "a") as f:
-                f.write("Paragraph completed at {}\nWith first sentence:{}\nLast sentence:{}\nGenerated paragraph body: {}\n\n".format(datetime.now().strftime("%c"), sentence1, sentence2, para))
-                f.close()
-        else:
-            print("completion log does not exist")
+            log_data = {
+                "sent1": sentence1,
+                "sent2": sentence2,
+                "generated": para,
+                "timestamp": datetime.now().strftime("%c")
+            }
+
+            log_to_firebase(log_data, "completion")
+
         return render_template("complete.html", anchor = "result", result = para, sentence1 = sentence1, sentence2 = sentence2)
         
 

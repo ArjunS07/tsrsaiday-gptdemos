@@ -36,7 +36,7 @@ def clean_response(ai_generated_response):
 def generate_prompt_storywriting(listOfWords):
 
     return """
-        Write a short story of 100 to 150 words using these four words:
+        Write a short story of 100 to 150 words using all of these four words:
         \n1. {}\n2. {}\n3. {}\n4. {}"
         \n\n Story:""".format(
         listOfWords[0], listOfWords[1], listOfWords[2], listOfWords[3] 
