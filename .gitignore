@@ -16,7 +16,7 @@ build/
 .DS_STORE
 
 # TODO: UNCOMMENT THIS ONCE PUBLIC
-# .env
+.env
 
 story_logs.txt
 completion_logs.txt
